@@ -1,7 +1,7 @@
 #import "../config/constants.typ": figuresList, tablesList
 #set page(numbering: "i")
 #heading(level: 1, numbering: none, outlined: false)[
-    #text(weight: "regular", 1em)[Contents]
+    #text(weight: "bold", 1em)[Contents]
 ]
 
 #context {
@@ -37,7 +37,7 @@
       
       // --- STYLE FOR LEVEL 1 (CHAPTERS) ---
       #if el.level == 1 {
-        v(1.5em) // Vertical space above
+        v(1.2em) // Vertical space above
         set text(font: "EB Garamond", size: 1.2em, weight: "regular")
         
         // GRID: Col 1 (Number + Title) | Col 2 (Page)
@@ -53,7 +53,7 @@
       
       // --- STYLE FOR SUBSEQUENT LEVELS (Sub-chapters) ---
       #if el.level > 1 {
-        v(0.2em) 
+        v(0.1em) 
         set text(font: "EB Garamond", size: 1em)
         
         // Calculate indentation (multiply by a unit!)
@@ -63,7 +63,7 @@
           #h(indentation)
           #section_number 
           #el.body
-          #box(width: 1fr, repeat[ . ]) // The dots!
+          #box(width: 1fr, repeat[.]) // The dots!
           #formatted_page_number 
         ]
       }

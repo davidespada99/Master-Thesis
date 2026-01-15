@@ -27,12 +27,12 @@
 
 #let figuresList = (
   "it" : "Elenco delle Figure",
-  "en" : "Listing of Figures",
+  "en" : "List of Figures",
 ).at(myLang)
 
 #let tablesList = (
   "it" : "Elenco delle Tabelle",
-  "en" : "Listing of Tables",
+  "en" : "List of Tables",
 ).at(myLang)
 
 #let chapter = (

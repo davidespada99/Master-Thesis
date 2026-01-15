@@ -14,16 +14,17 @@
     set page(margin: 1.3in, number-align: center)
     // set par(leading: 0.55em, first-line-indent: 1.8em, justify: true)
     set par(
-        leading: 0.55em,
+        leading: 0.8em,
         spacing: 0.55em,
-        first-line-indent: 1.8em,
-        justify: true)
+        first-line-indent: 1em,
+        justify: true,
+        )
 
     set text(
         font: "EB Garamond", 
         size: 10pt, 
         features: (onum: 1, liga: 1),
-        lang: myLang
+        lang: myLang,
         )
 
     set heading(numbering: "1.1.1.1")
@@ -31,33 +32,32 @@
     // "Source Code Pro" for code blocks
     show raw: set text(font: "Source Code Pro", size: 11pt, lang: myLang)
 
-    set par(spacing: 0.55em)
     show heading: set block(above: 1.5em, below: 1em)
 
 
     show heading: it => {
         if it.level == 1 {
             align(right, 
-        stack(
-            dir: ttb,
-            spacing: 1em,
-            if it.numbering != none {
-                text(size: 5em, fill: rgb("#B5001B"), features: (onum: 0, liga: 0))[#counter(heading).display("1")]
-            },
-            text(size: 1.8em, it.body),
-            []
+                stack(
+                dir: ttb,
+                spacing: 1em,
+                if it.numbering != none {
+                    text(size: 5em, fill: rgb("#B5001B"), features: (onum: 0, liga: 0))[#counter(heading).display("1")]
+                },
+                text(size: 1.8em, it.body),
+                []
             ))
         }
         else if it.level == 2 {
             align(left, 
-            stack(
-                dir: ltr,
-                spacing: 1.5em,
-                if it.numbering != none {
-                    text(size: 1.3em, font: "EB Garamond", weight: "light",  features: (onum: 1, liga: 1))[#counter(heading).display("1.1")]
-                },
-                text(size: 1.3em, weight: "light")[#smallcaps(it.body)],
-            ))
+                stack(
+                    dir: ltr,
+                    spacing: 1.5em,
+                    if it.numbering != none {
+                        text(size: 1.3em, font: "EB Garamond", weight: "light",  features: (onum: 1, liga: 1))[#counter(heading).display("1.1")]
+                    },
+                    text(size: 1.3em, weight: "light")[#smallcaps(it.body)],
+                ))
             v(0.8em)
         }
         else if it.level == 3 {

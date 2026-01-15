@@ -1,55 +1,24 @@
 // Non su primo capitolo
-
+#v(10em)
 = Introduction <cap:intro>
 
-Introduzione al contesto applicativo.
+== Overview <sec:iot_overview>
+From the firsts computational machines introduced in the mid of the 20th century to today, the evolution of computer science has seen a continuous innovation and rapid technological advancements. With the advent of internet by the end of the 20th century, the way we interact with technology has profoundly changed the world around us under various aspects, like social interactions, economical forces, political dynamics or the way we access and share information in the everyday life.\
+In the past decades, one of the most significant developments in this field is the rise of the Internet of Things (IoT) paradigm. 
 
-// TODO: aggiungere riferimenti a:
-// Termine nel glossario
-// Citazione in linea
-// Citazione nel pie' di pagina
+This concept, coined refers to a world where everyday objects, such as healthcare sensors, industrial actuators, home appliances and so on, are interconnected through the internet, enabling them to collect and exchange data for a wide range of applications that improve our daily life, through automation, remote sensing and control.
+Since its introduction, IoT devices have seen a rapid growth and large adoption in very different areas, from smart homes to industrial automation, healthcare, agriculture and many others.\
+The history of IoT started way back in 1982 when a vending machine was connected to the internet and set to display the number of bottles with its temperature. A decade later, in 1991, Mark Weiser introduced the concept of ubiquitous computing @ubiquitosus_computing, which was just a theoretical expression of what IoT is today. The first accepted technology used in this field was the Radio Frequency Identification (RFID) in 1998, a wireless technology using radio waves to automatically identify and track tags attached to objects
+Exactly from here, Kevin Ashton in 1999 @ashton2009internet a speech about the new idea of using RFID in the P&G's supply chain, coined the term "Internet of Things".\
+\
 
-Questo testo è in EB Garamond con numeri "old style": 1234567890.
-
-```typst
-// Questo codice sarà in Source Code Pro
-fn main() {
-    println!("Hello World");
-}
-```
-
-== IoT Systems
+However, due to the presence of an important number of heterogeneous and resources constrained devices (in terms of memory, CPU and bandwidth) communicating over error-prone and lossy radio channels and often deployed in hostile environments (e.g. war zone), IoT networks are experiencing various network performance problems (e.g. excessive energy consumption resulting from network device failure). This has fueled the development of different protocols and frameworks for management of IoT networks.
+\ 
 
 
-=== Characteristics IoT Systems
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
-esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-culpa qui officia deserunt mollit anim id est la
+== Problem statement <sec:problem_statement>
 
-==== Scalability
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-== L'idea
-
-Introduzione all'idea dello stage.
-
-== Organizzazione del testo
-
-#set par(first-line-indent: 0pt)
-/ #link(<cap:processi-metodologie>)[Il secondo capitolo]: descrive.
-/ #link(<cap:descrizione-stage>)[Il terzo capitolo]: descrive.
-/ #link(<cap:progettazione-codifica>)[Il quarto capitolo]: descrive.
-/ #link(<cap:verifica-validazione>)[Il quint capitolo]: descrive.
-/ #link(<cap:conclusion>)[Il sesto capitolo]: descrive.
+== Goals <sec:goals>
 
 
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
-
-- gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
-- per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: _parola_ (glsfirstoccur);
-- i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere _corsivo_.
-
-La bibliografia è gestita nel file `bibliography.typ` con il formato Bibtex. Per citare un elemento in bibliografia basta usare una semplice citazione `@citazione`, ad esempio per citare *il miglior libro di sempre* basta usare @p1 or @singh2023edge
+== Structure of the thesis <sec:structure_of_the_thesis>
