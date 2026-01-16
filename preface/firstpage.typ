@@ -8,7 +8,7 @@
 #let logo2 = "../images/unipd-logo.png"
 // Impostazioni generali della pagina e del font
 #set page(
-  margin: (top: 4cm, bottom: 2cm, left: 2.5cm, right: 2.5cm),
+  margin: (top: 3.5cm, bottom: 2cm, left: 2.5cm, right: 2.5cm),
 )
 
 #let transparent-image(imagebytes, alpha: 50%, ..args) = {

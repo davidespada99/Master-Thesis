@@ -11,21 +11,23 @@
     show math.equation: set text(weight: 400)
 
     // LaTeX look (secondo la doc di Typst)
-    set page(margin: 1.3in, number-align: center)
+    set page(margin: 3.5cm, 
+    number-align: center
+    )
     // set par(leading: 0.55em, first-line-indent: 1.8em, justify: true)
     set par(
         leading: 0.8em,
         spacing: 0.55em,
         first-line-indent: 1em,
         justify: true,
-        )
+    )
 
     set text(
         font: "EB Garamond", 
         size: 10pt, 
         features: (onum: 1, liga: 1),
         lang: myLang,
-        )
+    )
 
     set heading(numbering: "1.1.1.1")
 
