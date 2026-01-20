@@ -1,13 +1,16 @@
 #pagebreak(to:"odd")
 
+= Background <cap:background>
 
-= Processi e metodologie <cap:processi-metodologie>
+== Security requirements in IoT <sec:security_requirements_iot>
+In the context of IoT, security requirements are crucial to ensure the safe and reliable operations.
 
-#v(1em)
-#text(style: "italic", [
-    Breve introduzione al capitolo
-])
+CIA triad: 3+2 main security requirements:
+- Confidentiality
+- Integrity
+- Availability
+- Authentication
+- Authorization 
 
-#v(1em)
 
-== Processo sviluppo software
+

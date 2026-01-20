@@ -3,7 +3,7 @@
 #let myName = "Davide Spada"
 #let myID = "2113495"
 #let myTitle = "Multi-protocol communication architecture for IoT devices:"
-#let myTitle2 = "analysis of cyber threats and security mechanisms in smart agricolture applications"
+#let myTitle2 = "analysis of cyber threats and security mechanisms in smart agriculture applications"
 #let myDegree = "Master Thesis in Computer Science"
 #let myUni = "University of Padova"
 #let myDepartment = "Department of Mathematics ''Tullio Levi-Civita''"

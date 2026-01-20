@@ -34,7 +34,8 @@
 
     // Make the row clickable
     link(el.location())[
-      
+
+      #set par(first-line-indent: 0em)
       // --- STYLE FOR LEVEL 1 (CHAPTERS) ---
       #if el.level == 1 {
         v(1.2em) // Vertical space above
@@ -57,11 +58,12 @@
         set text(font: "EB Garamond", size: 1em)
         
         // Calculate indentation (multiply by a unit!)
-        let indentation = (el.level - 1) * 1.2em
+        let indentation = (el.level - 1) * 1.5em
         
         box(width: 1fr)[
           #h(indentation)
           #section_number 
+          #h(0.4em)
           #el.body
           #box(width: 1fr, repeat[.]) // The dots!
           #formatted_page_number 

@@ -6,10 +6,7 @@
 #include "./preface/summary.typ"
 #include "./preface/acknowledgements.typ"
 #include "./preface/table-of-contents.typ"
-
 // Mainmatter
-
-
 
 #pagebreak(to:"odd")
 #set page(numbering: "1")
@@ -23,14 +20,8 @@
 #include "./chapters/product-testing.typ"
 #include "./chapters/conclusion.typ"
 
-// // Appendix
-
-// #include "./appendix/appendice-a.typ"
-
-// // Backmatter
-
-// // Praticamente il glossario
 
 // Bibliography
+#include("./bibliography/bibliography.typ")
 
-#include("./appendix/bibliography/bibliography.typ")
+

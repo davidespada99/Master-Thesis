@@ -22,23 +22,22 @@
 
 // 2. Contenuto principale della copertina (tutto centrato)
 #align(center)[
+
+  #set par(spacing: 0.85em)
   // Logo dell'università in alto
   #image(logo, width: 15%)
-  #v(1cm)
   #text(size: 2.5em, weight: "semibold")[#smallcaps[#myUni]]
   #v(0.2cm)
   // Linea orizzontale
   #line(length: 100%, stroke: 0.5pt)
-
   #text(1.5em, weight: "medium")[ #smallcaps[#myDepartment]]
   #v(0.2cm)
-  #text(1.5em, weight: "medium")[ #smallcaps[#emph[#myDegree]] ]
+  #text(1.5em, weight: "medium")[#smallcaps[#emph[#myDegree]]]
   
   #let data = read(logo2, encoding:none)
   #place(center)[
-      #transparent-image(data,alpha:8%, width: 80%)
+  #transparent-image(data,alpha:8%, width: 80%)
   ]
-
   
   #v(2cm)
   // Titolo in rosso e grande
@@ -46,7 +45,7 @@
   // Disabilita la giustificazione SOLO per questo blocco
     #set par(justify: false, leading: 0.85em) 
     #text(2.2em, weight: "semibold", hyphenate: false, fill: rgb("#B5001B"))[#smallcaps[#myTitle]] 
-  #v(1em)
+
     #text(2.1em, weight: "semibold", hyphenate: false,fill: rgb("#B5001B"))[#smallcaps[#myTitle2]] 
   ]
 

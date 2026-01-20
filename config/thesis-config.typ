@@ -16,10 +16,10 @@
     )
     // set par(leading: 0.55em, first-line-indent: 1.8em, justify: true)
     set par(
-        leading: 0.8em,
-        spacing: 0.55em,
-        first-line-indent: 1em,
-        justify: true,
+        leading: 0.85em,
+        spacing: 0.85em,
+        first-line-indent: 1.2em,
+        justify: true
     )
 
     set text(
@@ -38,7 +38,21 @@
 
 
     show heading: it => {
-        if it.level == 1 {
+        if it.level == 1 and it.numbering != none {
+            v(10em)
+            align(right, 
+                stack(
+                dir: ttb,
+                spacing: 1em,
+                if it.numbering != none {
+                    text(size: 6em, fill: rgb("#B5001B"), features: (onum: 0, liga: 0))[#counter(heading).display("1")]
+                },
+                text(size: 2em, it.body),
+                []
+            ))
+        }
+        // Abstract, acknowledgements, etc.
+        else if it.level == 1 and it.numbering == none {
             align(right, 
                 stack(
                 dir: ttb,
@@ -50,7 +64,9 @@
                 []
             ))
         }
+
         else if it.level == 2 {
+            v(1.3em)
             align(left, 
                 stack(
                     dir: ltr,
@@ -60,7 +76,7 @@
                     },
                     text(size: 1.3em, weight: "light")[#smallcaps(it.body)],
                 ))
-            v(0.8em)
+            v(0.5em)
         }
         else if it.level == 3 {
             align(left, 
