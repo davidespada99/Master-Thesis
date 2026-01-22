@@ -12,12 +12,9 @@
 #set page(numbering: "1")
 #counter(page).update(1)
 
-#include "./chapters/introduction.typ"
-#include "./chapters/process.typ"
-#include "./chapters/stage-description.typ"
-#include "./chapters/requirements.typ"
-#include "./chapters/product-design.typ"
-#include "./chapters/product-testing.typ"
+#include "./chapters/01-introduction.typ"
+#include "./chapters/02-background.typ"
+#include "./chapters/03-methodology.typ"
 #include "./chapters/conclusion.typ"
 
 
