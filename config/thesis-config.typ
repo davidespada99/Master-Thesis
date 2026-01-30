@@ -11,9 +11,11 @@
     show math.equation: set text(weight: 400)
 
     // LaTeX look (secondo la doc di Typst)
-    set page(margin: 3.5cm, 
-    number-align: center
-    )
+    set page(
+        margin: 3.3cm, 
+        number-align: center)
+
+    
     // set par(leading: 0.55em, first-line-indent: 1.8em, justify: true)
     set par(
         leading: 0.85em,
@@ -24,18 +26,25 @@
 
     set text(
         font: "EB Garamond", 
-        size: 10pt, 
+        size: 10.5pt, 
         features: (onum: 1, liga: 1),
         lang: myLang,
     )
 
     set heading(numbering: "1.1.1.1")
 
+    // Figure numbering includes section and subsection
+    set figure(numbering: num => {
+        let heads = counter(heading).get()
+        numbering("1.1", ..heads.slice(0, calc.min(1, heads.len())), num)
+    })
+
     // "Source Code Pro" for code blocks
     show raw: set text(font: "Source Code Pro", size: 11pt, lang: myLang)
 
     show heading: set block(above: 1.5em, below: 1em)
 
+    set list(indent: 1em)
 
     show heading: it => {
         if it.level == 1 and it.numbering != none {

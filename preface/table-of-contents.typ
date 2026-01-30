@@ -1,7 +1,7 @@
-#import "../config/constants.typ": figuresList, tablesList
+#import "../config/constants.typ": figuresList, tablesList, acronymsList
 #set page(numbering: "i")
 #heading(level: 1, numbering: none, outlined: false)[
-    #text(weight: "bold", 1em)[Contents]
+    #text()[Contents]
 ]
 
 #context {
@@ -10,7 +10,6 @@
 
   // 2. LOOP OVER EACH FOUND HEADING
   for el in elements {
-    
     // --- FIX 1: RETRIEVE FORMATTED PAGE NUMBER (Roman/Arabic) ---
     // Get the active numbering pattern at that location (e.g., "i" or "1")
     let page_pattern = el.location().page-numbering()
@@ -39,10 +38,11 @@
       // --- STYLE FOR LEVEL 1 (CHAPTERS) ---
       #if el.level == 1 {
         v(1.2em) // Vertical space above
-        set text(font: "EB Garamond", size: 1.2em, weight: "regular")
+        set text(size: 1.2em)
         
         // GRID: Col 1 (Number + Title) | Col 2 (Page)
         // Nothing in between -> No dots
+        
         grid(
           columns: (1fr, auto),
           align: (left, bottom),
@@ -73,18 +73,4 @@
   }
 }
 
-#v(8em)
 
-#heading(level: 1, numbering: none, outlined: true)[#tablesList]
-#outline(
-    title: none,
-    target: figure.where(kind: table),
-    indent: auto
-)
-
-#v(8em)
-#heading(level: 1, numbering: none, outlined: true)[#figuresList]
-#outline(
-  title: none,
-  target: figure.where(kind: image)
-)

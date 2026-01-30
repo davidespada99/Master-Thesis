@@ -3,8 +3,8 @@
 
 #set par(first-line-indent: 0pt)
 #set page(numbering: "i")
-#heading(level: 1, numbering: none, outlined: false)[
-    #text(weight: "regular", 1em)[Acknowledgements]
+#heading(level: 1, numbering: none, outlined: true)[
+    #text()[Acknowledgements]
 ]
 
 #v(2em)

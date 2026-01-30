@@ -35,6 +35,11 @@
   "en" : "List of Tables",
 ).at(myLang)
 
+#let acronymsList = (
+  "it" : "Elenco degli Acronomi",
+  "en" : "List of Acronyms",
+).at(myLang)
+
 #let chapter = (
   "it" : "Capitolo",
   "en" : "Chapter",

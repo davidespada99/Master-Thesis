@@ -8,7 +8,7 @@
 #let logo2 = "../images/unipd-logo.png"
 // Impostazioni generali della pagina e del font
 #set page(
-  margin: (top: 3.5cm, bottom: 2cm, left: 2.5cm, right: 2.5cm),
+  margin: (top: 2.5cm, bottom: 2cm, left: 2.5cm, right: 2.5cm),
 )
 
 #let transparent-image(imagebytes, alpha: 50%, ..args) = {
@@ -44,7 +44,7 @@
   #align(center)[
   // Disabilita la giustificazione SOLO per questo blocco
     #set par(justify: false, leading: 0.85em) 
-    #text(2.2em, weight: "semibold", hyphenate: false, fill: rgb("#B5001B"))[#smallcaps[#myTitle]] 
+    #text(2.25em, weight: "semibold", hyphenate: false, fill: rgb("#B5001B"))[#smallcaps[#myTitle]] 
 
     #text(2.1em, weight: "semibold", hyphenate: false,fill: rgb("#B5001B"))[#smallcaps[#myTitle2]] 
   ]
