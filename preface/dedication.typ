@@ -2,7 +2,7 @@
 
 #let img = "../images/pale-blue-dot.jpg"
 
-
+#set par(first-line-indent: 0em)
 #align(left + bottom, [
     
     #image(img, width: 24em)

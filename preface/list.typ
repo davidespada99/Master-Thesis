@@ -53,6 +53,7 @@
 #acronym("AES-CCM", "Advanced Encryption Standard - Counter with CBC-MAC")
 #acronym("MAC", "Message Authentication Code")
 #acronym("CSMA/CA", "Carrier Sense Multiple Access with Collision Avoidance")
+#acronym("TCP", "Transmission Control Protocol")
 #acronym("M2M", "Machine to Machine")
 #acronym("IAM", "Identity Access Management")
 #acronym("HA", "High Availability")

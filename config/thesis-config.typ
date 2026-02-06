@@ -20,16 +20,22 @@
     set par(
         leading: 0.85em,
         spacing: 0.85em,
-        first-line-indent: 1.2em,
+        first-line-indent: (
+            amount: 1.2em,
+            all: true,
+            ),
         justify: true
     )
 
+    
     set text(
         font: "EB Garamond", 
         size: 10.5pt, 
         features: (onum: 1, liga: 1),
         lang: myLang,
-    )
+        )
+
+    show figure.caption: set text(size: 9.5pt)
 
     set heading(numbering: "1.1.1.1")
 
