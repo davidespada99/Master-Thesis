@@ -59,3 +59,4 @@
 #acronym("HA", "High Availability")
 #acronym("RPL", "Routing Protocol for Low Power and Lossy Networks")
 #acronym("IDS", "Intrusion Detection Systems")
+#acronym("ReBAC", "Relationship-Based Access Control")

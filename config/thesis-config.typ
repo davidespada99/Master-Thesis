@@ -1,8 +1,8 @@
 #import "../config/constants.typ": chapter
-#import "../config/variables.typ": myName, myTitle, myLang,
+#import "../config/variables.typ": myName, myTitle, myTitle2, myLang,
 #let config(
     myAuthor: myName,
-    myTitle: myTitle,
+    myTitle: myTitle+myTitle2,
     myLang: myLang,
     body
 ) = {
@@ -10,7 +10,7 @@
     set document(author: myAuthor, title: myTitle)
     show math.equation: set text(weight: 400)
 
-    // LaTeX look (secondo la doc di Typst)
+    // LaTeX look 
     set page(
         margin: 3.3cm, 
         number-align: center)
@@ -18,8 +18,8 @@
     
     // set par(leading: 0.55em, first-line-indent: 1.8em, justify: true)
     set par(
-        leading: 0.85em,
-        spacing: 0.85em,
+        leading: 0.95em,
+        spacing: 0.95em,
         first-line-indent: (
             amount: 1.2em,
             all: true,

@@ -3,7 +3,7 @@
 = Background <cap:background>
 
 == Introduction <sec:background_introduction>
-This section provides the necessary background information to contextualize the topics discussed in the #link(<cap:methodology>)[Methodology] section, where implementation details are presented.\
+This section provides the necessary background information to contextualize the topics discussed in @cap:methodology, where implementation details are presented.\
 
 Firstly, a deeper overview of the Internet of Things is given, with a focus on its technical aspects and architecture. This includes a survey of the communication protocol stack, from the physical and network layers to the transport and application layers.\
 
@@ -11,12 +11,12 @@ In particular, the two most widely adopted IoT communication protocols, MQTT and
 
 Subsequently, the security requirements and challenges inherent to IoT are discussed, followed by an examination of common cyber threats and security mechanisms. \
 
-The main reasons for choosing these two protocols is mainly derived from their widespread adoption in the IoT ecosystem, as well for their contrasting and opposite design philosophies. As we will see, MQTT is a lightweight publish-subscribe protocol based on TCP (Transmission Control Protocol) networking, while CoAP is a RESTful protocol based on UDP networking. This specular opposition makes them particularly compelling and technically challenging to make them work seamlessly together. Furthermore, their divergent security mechanisms add a significant layer of complexity to the task of ensuring a unified and secure communication environment.
+The main reasons for choosing these two protocols is mainly derived from their widespread adoption in the IoT ecosystem, as well for their contrasting and opposite design philosophies. As we will see, MQTT is a lightweight publish-subscribe protocol based on TCP networking, while CoAP is a RESTful protocol based on UDP networking. This specular opposition makes them particularly compelling and technically challenging to make them work seamlessly together. Furthermore, their divergent security mechanisms add an additional layer of complexity to the task of ensuring a unified and secure communication environment.
 
 == Internet of Things characteristics <sec:iot_characteristics>
-The IoT is a technological paradigm still in an evolutionary phase. Currently, it can be interpreted from three main perspectives: Internet-oriented, which emphasizes the aspect of network connectivity; things-oriented, focused on sensors and smart objects; and semantic-oriented, concentrated on knowledge and data interpretation.
+The IoT is a technological paradigm still in an evolutionary phase. Currently, it can be interpreted from three main perspectives: internet-oriented, which emphasizes the aspect of network connectivity; things-oriented, focused on sensors and smart objects; and semantic-oriented, concentrated on knowledge and data interpretation.
 
-Depending on the intended use, the sector is further divided into Human Internet of Things (HIoT), focused on end-user applications, and Industrial Internet of Things (IIoT), aimed at optimizing industrial processes, reducing machine downtime, and saving energy @atzori2010internet. In this context, the concept of "object" is extremely broad and includes both personal devices such as smartphones and cameras, as well as infrastructural or industrial elements equipped with RFID tags and sensors capable of generating data and services autonomously.\
+Depending on the intended use, the sector is further divided into Human Internet of Things (HIoT), focused on end-user applications, and Industrial Internet of Things (IIoT), aimed at optimizing industrial processes, reducing machine downtime, and saving energy @atzori2010internet. In this context, the concept of _object_ is extremely broad and includes both personal devices such as smartphones and cameras, as well as infrastructural or industrial elements equipped with RFID tags and sensors capable of generating data and services autonomously.\
 === Infrastructure characteristics <sec:infrastructure_characteristics>
 From an infrastructural point of view, the IoT inherits several characteristics from pre-existing systems such as wireless sensor networks (WSN) and Machine-to-Machine (M2M) communications, while introducing specific new elements.
 
@@ -49,26 +49,26 @@ Different models have been proposed by different researchers, which goes from th
     <fig:iot_layers>
 ]
 
-=== Perception layer
+=== Perception layer <sec:perception_layer>
 The perception layer constitutes the bottom of the IoT stack, where physical data collection occurs. The big data created by the IoT are initiated at this layer. It consists of sensors and actuators designed to perceive and interact with the surrounding environment, such as obtain data on location, weight, motion, vibration, acceleration etc.\
 
 In a smart agriculture context, this includes a wide array of devices such as temperature, air humidity or soil moisture sensors, as well as smart cameras, RFID tags or weather stations. Furthermore, we may find automated systems like smart irrigation valves or lighting controls, to make some examples.
 The versatility of this layer extends to other domains as well: in healthcare, it includes wearable devices like fitness trackers for health monitoring; in smart cities, it encompasses air quality monitors and smart thermostats; in Industrial IoT (IIoT), sensors for vibration and flow are utilized for predictive maintenance and process optimization and so on.\
 To manage this inherent diversity, standardized plug-and-play mechanisms are essential to configure heterogeneous objects. Finally, the perception layer is responsible for digitizing raw information and transferring it to the upper layers through secure communication channels.
 
-=== Transport layer
+=== Transport layer <sec:transport_layer>
 Also referred to as the network layer, the transport layer is responsible for transferring the collected data to the processing layer. This is possible via various communication technologies and protocols, such as RFID, 5G, WiFi, Bluetooth Low Energy (BLE) and ZigBee. The choice of technology depends on several critical factors, including transmission range, data rate, power consumption and specific environmental conditions. At this layer, we find key protocols like IPv6 (Internet Protocol version 6), which is essential for addressing the billions of "things" within the ecosystem. \
 
 The IoT is an immense network that not only connects billions of individual devices but also encompasses a vast multitude of diverse networks. Therefore, ensuring robust and seamless communication between different networks and entities is a crucial challenge at this level.
 
-=== Middleware layer
+=== Middleware layer <sec:middleware_layer>
 The middleware layer, also known as the processing layer, serves as the core of the IoT architecture, bridging data collection and consumer services. Its main purpose is to store, analyze and process the information received from the transport layer. This layer enables IoT application programmers to work with heterogeneous objects without being constrained by specific hardware platforms, as it effectively pairs services with their respective requesters based on addresses and names.\
 
 Furthermore, it is responsible for making decisions and delivering required services over network protocols. To achieve this, it employs a wide range of technologies, including databases, cloud computing and big data processing frameworks.\
 
 As previously mentioned in the introduction, this layer represents the level where protocol interoperability is addressed. It is precisely within this middleware context that protocols such as MQTT and CoAP operate, acting as the fundamental tools to manage communication and integration across diverse IoT systems.
 
-=== Application layer
+=== Application layer <sec:application_layer>
 The application layer is responsible for providing the services requested by customers. 
 Building upon the data processed in the middleware layer, it facilitates the development of diverse IoT applications, such as intelligent transportation, logistics management and emergency response systems.\
 
@@ -76,7 +76,7 @@ The importance relies in the ability to provide high-quality smart services to m
 
 For instance, in the smart agriculture scenario, this layer presents real-time measurements such as temperature, light intensity and air humidity to the user. These data points are then utilized for monitoring, historical analysis and smart decision making.\
 
-=== Business layer
+=== Business layer <sec:business_layer>
 The business layer manages the overall activities and services of the IoT system. Its primary responsibility is to define business models, graphically represent business logic and ensure the economic viability of the infrastructure. This layer includes profit models, strategic applications and the implementation of user privacy policies. \
 
 As is widely recognized, the success of a technology depends not only on technical superiority but also on the innovation and soundness of its business model. From this perspective, the Internet of Things cannot achieve effective, long-term development without a dedicated focus on business strategy.\
@@ -329,14 +329,7 @@ Despite these benefits, CoAP presents several structural limitations that may co
 ==== Message Queuing Telemetry Transport (MQTT) <sec:mqtt>
 MQTT is a simple, open, lightweight messaging protocol designed to offer efficient communication in low bandwidth and resource conservation for constrained devices. Originally developed by IBM in the late 1990s, it has been standardized by OASIS in 2013 @mqtt_oasis.\
 
-Differently from CoAP, MQTT is based on the publish-subscribe paradigm, as discussed in @sec:pub_sub. Another important feature is the reliability of communication as it runs over TCP for transport. Although TCP may have higher energy overhead than UDP, it provides critical advantages for IoT reliability, primarily through ordered and lossless delivery, important especially in scenarios where data integrity and ordering are crucial. Furthermore, the use of TCP enables persistent sessions and connection awareness, which are essential for maintaining stateful interactions. \ \
-
-As mentioned earlier, it has a topic-based architecture, where the exchanged data is classified by hierarchically organized topics in such a way that every message is associated with a topic. 
-A topic can be described as a string that represents a specific category of information. For example, in a smart agriculture scenario, we could have messages on topics such as _/farm1/greenhouse2/temperature_ or _/farm1/field3/humidity_.  This hierarchical structure allows for efficient organization and filtering of messages.\
-In MQTT, a publisher is any client, typically a sensor, that acts as a data producer by publishing messages associated with specific topics. Conversely, a subscriber functions as a data consumer by requesting information and subscribing to those same topics. It is important to note that these conditions are not exclusive; a single client can act both as a publisher and a subscriber across different data streams. The core is the broker, a central device that serves as the information hub and is responsible for maintaining the subscription interests of all clients, receiving published messages and routing them only to interested nodes. By acting as an intermediate filter, the broker ensures that each client receives only pertinent information.
-
-
-
+Differently from CoAP, MQTT is based on the publish-subscribe paradigm, as discussed in @sec:pub_sub and shoewed in @fig:mqtt_pub_sub. Another important feature is the reliability of communication as it runs over TCP for transport. Although TCP may have higher energy overhead than UDP, it provides critical advantages for IoT reliability, primarily through ordered and lossless delivery, important especially in scenarios where data integrity and ordering are crucial. Furthermore, the use of TCP enables persistent sessions and connection awareness, which are essential for maintaining stateful interactions. \
 #v(1em)
 #align(center)[
     #figure(image("../images/mqtt-pub-sub.png", width: 8cm),
@@ -344,6 +337,11 @@ In MQTT, a publisher is any client, typically a sensor, that acts as a data prod
     <fig:mqtt_pub_sub>
 ]
 #v(1em)
+
+As mentioned earlier, it has a topic-based architecture, where the exchanged data is classified by hierarchically organized topics in such a way that every message is associated with a topic. 
+A topic can be described as a string that represents a specific category of information. For example, in a smart agriculture scenario, we could have messages on topics such as _/farm1/greenhouse2/temperature_ or _/farm1/field3/humidity_.  This hierarchical structure allows for efficient organization and filtering of messages.\
+In MQTT, a publisher is any client, typically a sensor, that acts as a data producer by publishing messages associated with specific topics. Conversely, a subscriber functions as a data consumer by requesting information and subscribing to those same topics. It is important to note that these conditions are not exclusive; a single client can act both as a publisher and a subscriber across different data streams. The core is the broker, a central device that serves as the information hub and is responsible for maintaining the subscription interests of all clients, receiving published messages and routing them only to interested nodes. By acting as an intermediate filter, the broker ensures that each client receives only pertinent information.
+
 \
 
 In a MQTT network, sensor nodes may publish data directly to the cloud or to a local gateway, which then forwards the information to a cloud-based broker. This architecture, as for CoAP, depends on the specific application scenario. In open-field, for extensive farming, the use of a local gateway is often necessary due to the wide geographical distribution of devices. In contrast, smart greenhouses can often rely on direct cloud connectivity through Wi-Fi or LTE modules, given their controlled environments and stable power sources.\
@@ -364,18 +362,18 @@ MQTT benefits from its optimized message structure. The messages, known as MQTT 
 The following four bits are specific flags that vary depending on the packet type. For instance, in a PUBLISH message, the _DUP_ flag indicate a duplicate, bits 5-6 define the _Quality of Service_ (QoS) Level and bit 7 is the _Retain_ flag. These flags allow for control over the data exchange; when certain QoS levels are required, the broker triggers additional acknowledgment messages (such as PUBACK) to ensure reliability. Furthermore, when the Retain flag is set, the broker stores the most recent state of a topic, allowing new subscribers to receive immediate updates without waiting for the next sensor cycle.\
 
 This is immediately followed by the _Remaining Length_ field (1 to 4 bytes), which uses a variable length encoding scheme to support payloads of varying sizes with minimal overhead. Depending on the message type, the packet may also include an optional _Variable Length Header_, since it contains control information, such as the packet identifier, the topic name, the keep alive timer and protocol version. Finally, the _Message Payload_ contains the actual application data.
+#v(1em)
 #align(center)[
     #figure(image("../images/mqtt-message-format.ppm", width: 9cm, height: 5cm, fit: "stretch"),
     caption: "MQTT Message Format")
     <fig:mqtt_message_format>
 ]
-#v(1.5em)
-\
+#v(1em)
 
 In a typical scenario, both the subscribers and the publishers initiate their connection to the server at any time by sending a CONNECT message and receiving the corresponding CONNACK. Once connected, each subscribers subscribes to its topics of interest by sending a SUBSCRIBE message and receiving the corresponding SUBACK. Any other client publishes information on a topic via a PUBLISH message to the broker, which then forwards the data to all interested subscribers. This is depicted in @fig:mqtt_messaging.\
-#v(1.5em)
+#v(1em)
 #align(center)[
-    #figure(image("../images/mqtt-pub-sub-ack.png", width: 6cm),
+    #figure(image("../images/mqtt-pub-sub-ack.png", width: 5.5cm),
     caption: "MQTT Messaging Example")
     <fig:mqtt_messaging>
 ]
@@ -418,9 +416,8 @@ DDS is both language and OS independent. The APIs have been implemented and stan
 
 DDS utilizes a decentralized architecture where nodes, known as publishers and subscribers, communicate directly through a shared data space, but differently from MQTT it doesn not use a central broker. DDS is based on the concept of topic, which describe the type and structure of data to be exchanged. It also supports QoS policies that allow control data delivery guarantees, reliability, latency and resource usage. DDS operates over standard transport protocols such as UDP and TCP.
 
-#pagebreak()
 
-== IoT Security <sec:iot_security>
+== Security Requirements, Challenges and Threats <sec:iot_security>
 The Internet of Things promises to make our lives more convenient by turning each physical object into a smart object that can sense the environment, communicate with the other devices, perform reasoning and respond properly to changes in the surrounding environment. However, IoT brings also new security risks and privacy issues that must be addressed properly. Ignoring these issues may have serious effects on  different aspects: from enterprise applications to our house and even our own life.\
 
 Imagine the vulnerability of a home where smart meters and gadgets control lighting, heating and security. If these are hacked, an attacker gains direct access to personal data. The increasing connectivity of smart cars could allow a hacker to seize control of anything from door locks to brakes and steering. Most alarming is the threat to our own lives, as even implantable medical devices like pacemakers can be intercepted. By remotely tampering, an attacker could cause fatal health complications.\
@@ -447,7 +444,7 @@ Beyond the traditional CIA triad, we have:
 
 _Authentication_: it ensures that the entities involved in any operation are who they claim to be, before granting access to resources. Risks include weak or stolen credentials or lack of multi-factor authentication. A masquerade attack or an impersonation attack usually targets this requirement where an entity claims to be another identity. 
 
-_Authorization_: it ensures that entities have the required control permissions to perform the operation they request to perform. Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC) are commonly used mechanisms to enforce authorization policies.
+_Authorization_: it ensures that entities have the required control permissions to perform the operation they request to perform. Role-Based Access Control (RBAC), Attribute-Based Access Control (ABAC) and Relationship-Based Access Control (ReBAC) are commonly used mechanisms to enforce authorization policies.
 
 _Freshness_: it ensures that the data being used is up-to-date. Replay attacks target this requirement
 where an old message is replayed in order to return an entity into an old state. This is particularly important in IoT where real-time data is critical for decision-making. For example, timestamps and sequence numbers are commonly used to ensure data freshness.
@@ -455,7 +452,7 @@ where an old message is replayed in order to return an entity into an old state.
 
 _Non-repudiation_: it ensures that entities cannot deny their actions. Digital signatures and audit logs are commonly used to provide non-repudiation. 
 
-=== Challenges and Cyber Threats in Smart Agriculture(???) <sec:security_challenges_iot>
+=== Challenges and Cyber Threats in Smart Agriculture <sec:security_challenges_iot>
 The expansion of IoT in agriculture introduces security challenges across various dimensions and can be categorized into four critical areas: _device security_, where unauthorized manipulation and tampering must be prevented; _communication security_, requiring robust encryption for data transmission; _storage security_, demanding strict access controls and data minimization; and _processing security_, ensuring personal data handling complies with intended purposes and user consent. 
 
 These challenges are further complicated by the distributed nature of agricultural sensors, resource constraints of devices, the volume of real-time data requiring encryption and the inherent vulnerabilities of wireless communications and open systems, which represent a limit to complex security algorithms. \ \
@@ -463,16 +460,125 @@ These challenges are further complicated by the distributed nature of agricultur
 In a practical sense, these vulnerabilities manifest across the entire architectural stack. At the perception layer, physical components such as sensors and actuators are vulnerable to physical tampering, including theft, animal interference and malicious manipulation, while also being susceptible to node capture attacks where intruders extract cryptographic data directly from device memory. 
 Moving to the transport layer, threats include Denial of Service (DoS) attacks, signal jamming, man-in-the-middle (MitM) attacks, routing manipulation and data transit interception, all of which can disrupt critical communication channels. At higher levels, middleware and application layers are exposed to malicious scripts, phishing attacks, SQL injection, signature wrapping and unauthorized actuator control. Cloud repositories supporting IoT infrastructure remain vulnerable to data tampering and unauthorized resource access. A critical concern in smart agriculture and similar IoT deployments is that security features in common protocols like MQTT and CoAP are typically disabled by default, requiring manual activation. Many existing IoT implementations lack fundamental security mechanisms, authentication procedures and failure diagnostics, leaving systems exposed to potential attacks.
 
+In the following, we will present the most relevant cyber threats in smart agriculture IoT systems, categorized by layer.
+
+==== Security threats in the perception layer <sec:security_threats_perception_layer>
+At the perception layer, as we saw in @sec:perception_layer, comprises various devices, such as sensors and actuators. These collect information about environmental conditions such as heat, moisture, wind, plant diseases ecc. However, the physical devices are vulnerable to malfunctions caused by human actions, viruses, malware or cyberattacks. Several security issues need to be addressed in this layer. 
+
+- _Node Capture_: it is a type of attack where an adversary physically captures a device to extract sensitive information, such as cryptographic keys. A type of this attack is node replication attack @parno2005distributed in which the attacker creates a replica of an existing node and adds it to the set of existing nodes to the network. This is particularly concerning in smart agriculture, where devices are often deployed in open fields and are easily accessible; in greenhouses, the risk is musch lower due to the controlled environment. Countermeasures include tamper-resistant hardware, HSM, secure key storage and monitoring for anomalous behavior. 
+
+- _Replay Attacks_: in this attack, an adversary intercepts and retransmits valid data to create unauthorized effects. For example, an attacker could capture a command to activate irrigation and replay it later to cause overwatering.
+
+- _Eavesdropping_: the attacker secretly listens to private communication of two parties without their knowledge. The aim is to obtain some confidential data or collect information. For example, an attacker could eavesdrop on the communication between a sensor and a gateway to steal sensitive data or credentials. This type of attack can be mitigated by using strong encryption like AES or RSA, but usually Elliptic Curve Cryptography (ECC) is preferred in IoT due to its resource constraints nature @ecc_iot.
+
+- _Spleep Deprivation_: energy-constrained sensors typically rely on battery power. When these nodes are not in use, they should enter sleep mode to extend battery life. This attack involve draining the battery by sending repeated requests to keep them awake. Eventually, the device’s battery will be depleted, leading to node shutdown. This could be mitigated by implementing rate limiting, round robin scheduling, hash-based schema or random vote @sleep_deprivation_attack.
+
+- _Jamming_: malicious signals are sent to disrupt wireless communication, causing packet loss. For instance, jamming the signal of a smoke detector could prevent a fire alarm from reaching the gateway. Defense measures include spread spectrum communication or analyzing packetd delivery ratio.
+
+- _Physical Attack_: it include any attack that involves stealing or breaking the device so as to make it unavailable for service. The difference with node capture is that in this case the device is not used by the attacker, but the purpose is to disrupt the system's operation. Especially in open-field farming, countermeasures include locks, fences and surveillance cameras, as well as tamper resistant hardware.
+
+==== Security threats in the transport layer <sec:security_threats_transport_layer>
+The transport layer, as we saw in @sec:transport_layer, has the purpose transmit the agricultural data
+collected by the perception layer to higher layers and enables the execution of actions by sensing layer devices through the delivery of control commands from the application layer to the perception layer. Due to its wide transmission range and the large volume of data being transmitted, this layer is vulnerable to various attacks that jeopardize the confidentiality and integrity of data. Despite the presence of relatively robust security mechanisms in the current communication network, common threats can still affect network resources. The following are the main security issues at the network layer.
+
+- _RFID-based attacks_: all RFID tags have unique identities which distinguish them. If the tag does not employ any strong security features or not at all, then cloning involves replicating the tags ID and any data related to the clone tag. Similar to cloning is spoofing, where the attacker emulates the original tag and gain privileges. To mitigate these attacks strong authentication mechanism is required. Physical Unclonable Function (PUF) @puf_rfid, an authentication mechanism that uses a one-way function and challenge-response mechanism is widely used to mitigate RFID tag cloning. Several other authentication protocols based on cryptographic primitives like bitwise operator(XOR), pseudorandom numbers or hash-functions has also been proposed against such attacks.
+
+- _Routing manipulation attacks_: these include several attacks that attempt to manipulate traffic by altering network routes. In IoT networks, malicious nodes may try to modify the routing paths used for data transmission. This may lead to incomplete or incorrect information reaching the target, delayed delivery or no delivery at all. \ In a _sinkhole attacks_ the malicious node attract traffic using false routing information to enable selective forwarding or data manipulation. In @sinkhole trust-based scheme is proposed for the routing protocol to detect and mitigate such attack. _Sybil attacks_ involve malicious nodes claiming multiple identities to spread spam or violate privacy. Mitigation includes mutual authentication or reputation techniques. _Wormhole attacks_ can be launched without compromising any node, even bypassing authenticity and confidentiality. The malicious node captures some packets from one location in the network and forwards it a distant location in the network. Most of the detection or mitigation techniques use distance or time analysis, such as in @wormhole_detection. _Hello Flood_ attacks use high-power transmissions to falsely advertise neighbor relationships and create inefficient multi-hop routes. In @hello_flood, verifying the bi-directionality of the link prior to taking any action over the message received from that link has been suggeste. Finally, _Selective forwarding_ occurs when a compromised intermediate node deliberately drop certain packets while forwarding others. Multi-path routing @de2003meshed can be used to mitigate this attack.
+
+==== Security threats in the middleware and application layers <sec:security_threats_middleware_application_layer>
+The middleware and application layers, as we saw in @sec:middleware_layer, are responsible for processing, storing and analyzing the data collected, with the purpose to provide the user a service or an application. 
+
+- _Malicious code injection_: The adversary can inject malicious code in the node and control the IoT devices. The malicious code may crash the system, steal or tamper the confidentiality of the data. Protocols like MQTT and CoAP treat payloads as transparent data packets, if not using proper authentication and validation mechanisms, and an attacker can publish messages containing harmful scripts, such as SQL Injection or Cross-Site Scripting. Proper input validation, sanitization are helpful to mitigate this attack.
+
+- _Phishing Attack_: in this attack, the attacker sends fraudulent messages that appear to come from a trusted source, with the aim to trick the recipient into revealing sensitive information or performing an action. For example, an attacker could induce monitoring devices to connect to a fake server, intercepting login credentials or sending false alarm states that unnecessarily activate greenhouse systems. 
+
+- _Protocol-Specific Exploits_ : Specific protocols face unique high-layer risks. CoAP, for instance, is highly susceptible to _amplification attacks_, in which an attacker can use the end devices to convert a small packet into a larger packet, or cross-protocol attacks, where the translation from TCP to UDP is liable to attacks. Regarding MQTT, a lack of permission access can lead to unauthorized subscriptions, where a malicious client listens on sensitive topics or publishes unauthorized commands to actuators. These protocol-specific vulnerabilities can be mitigated by implementing proper packet encryption, authentication, and authorization mechanisms.
+
+==== Security threats in the middleware and application layers <sec:security_threats_middleware_application_layer>
+The middleware and application layers, as we saw in @sec:middleware_layer, are responsible for processing, storing and analyzing the data collected, with the purpose to provide the user a service or an application. 
+
+- _Malicious code injection_: The adversary can inject malicious code in the node and control the IoT device. The malicious code may crash the system, steal or break the confidentiality of the data. Protocols like MQTT and CoAP treat payloads as transparent data packets, and without proper authentication and validation mechanisms, an attacker can publish messages containing harmful scripts, such as SQL Injection or Cross-Site Scripting (XSS). This can be avoided through input validation and sanitization on all incoming data, implementation of permission checks for accepted commands and payloads or appropriate use of firewalls and intrusion detection systems.
+
+- _Phishing Attack_: in this attack, the attacker sends fraudulent messages that appear to come from a trusted source, with the aim to trick the recipient into revealing sensitive information, like login credentials, or performing an action. For example, an attacker could induce monitoring devices to connect to a fake server, intercepting credentials or sending false alarm states that unnecessarily activate greenhouse systems. 
+
+- _Unauthorized access and data manipulation_: attackers may attempt to gain unauthorized access to application interfaces or cloud services, leading to incorrect decision-making and system failures. Countermeasures include implementing RBAC to limit user privileges, encryption, session timeout or token expiration mechanisms.
+
+==== Multi-layer attacks <sec:multi_layer_attacks>
+Multi-layer attacks, as the name suggests, target multiple layers of the IoT architecture simultaneously, making them particularly dangerous and difficult to mitigate. Some of the most important are the following.
+
+- _DoS and DDoS Attacks_:  these attacks can target multiple layers of the IoT architecture. For example, an attacker could launch a DDoS attack on the network layer to overwhelm the communication channels, while simultaneously targeting the application layer with a flood of requests to exhaust server resources @ddos. Smart systems, due to their high susceptibility, pervasiveness, internet connectivity and heterogeneity, are particularly vulnerable to such attacks. This multi-layer approach can amplify the impact and make it more difficult to mitigate. In smart agriculture, for  instance, it impede the timely transmission of measurements or commands on time, especially during critical operations.
+
+
+- _MitM Attacks_: in man-in-the-middle attack, the attacker inserts a malicious device into a conversation between two parties, impersonates both parties and gains access to information transmitted between them. As MitM attacks occur in different layers of IoT, mitigation techniques depends on the type of MitM attack. The attack can be countered by the using efficient cryptographic schemes. Public key cryptography are widely used to counter this attack.
+\
+As we saw, securing IoT systems is a complex task that addresses vulnerabilities at each layer of the architecture and requires a deep understanding of the potential threats and attack vectors. We presented some of the most important ones, with a focus on smart agriculture, but there are many more. In the next section we will present some of the most important security solutions.
+
+
+== Security solutions <sec:security_solutions_iot>
+To address the security challenges and threats in IoT systems, various solutions and best practices can be implemented, following the requirements discussed in @sec:security_requirements_iot. In this section, we will present and describe the most relevant security solutions for IoT systems, which are also implemented in this work on MQTT and CoAP protocols, as presented in @cap:methodology. These solutions aim to enhance the security by provinding mechanisms for authentication, authorization, encryption, integrity and availability.
+
+=== MQTT security solutions <sec:security_solutions_mqtt>
+MQTT, as we saw in @sec:mqtt, is a widely used protocol in IoT applications, but it has some security vulnerabilities that need to be addressed. Here we discuss the most important authentication and authorization mechanisms. 
+==== Authentication methods
+The most basic authentication mechanism in MQTT is based on the username and password fields in the CONNECT control packet, located within the variable header, as we briefly mentioned in @sec:mqtt. When a client attempts to establish a session, it submits these strings to the broker, which then validates them against an internal database, an external plugin or a dedicated service. However, because the MQTT protocol was designed for efficiency rather than native security, this method is inherently insecure as the credentials are transmitted in clear text when using plain TCP. This creates a vulnerability gap to eavesdropping, allowing unauthorized parties to silently monitor and capture sensitive information. Furthermore, it exposes the system to MitM attacks, where an intruder intercepts and potentially alters the login data, and replay attacks, where a captured CONNECT packet is later retransmitted to impersonate a legitimate client and gain unauthorized access to the broker.
+
+To address this, in a production environment TLS is employed, which establishes an encrypted tunnel before the MQTT handshake occurs. By using TLS, the entire packet, including the username and password, is transformed into ciphertext, ensuring that even if the data is intercepted, the credentials remain unreadable to unauthorized parties.
+
+TLS works through a multi step process. It begins with the _handshake_, where the client and broker agree on the version of TLS and the specific cryptographic algorithms to be used for the session. Following this agreement, _server authentication_ takes place and the broker sends its digital certificate containing its public key, allowing the client to verify this certificate against a trusted authority if it is a legitimate broker. Once the identity is confirmed, the _key exchange_ occurs, during which both parties securely generate a temporary symmetric session key using the broker's public key. Finally, the _encryption_ step ensures that all MQTT traffic is encrypted with this session key, allowing only the two parties to decrypt the data in transit.
+\ \
+
+Mutual TLS (mTLS), represents a variant from standard TLS, where only the server's identity is verified, by requiring both the broker and the client to authenticate each other using unique X.509 digital certificates. In mTLS, each device is issued a certificate and during the handshake, both send its public certificate with a digital signature created by its physical private key. Then, they both validates against a Trusted Root Certificate Authority (CA) to ensure the legitimacy of the other party.
+
+This mutual authentication process is essential for IoT environments. Differently from password based authentication, here the private key never leaves the hardware (especially if combined HSM), preventing identity spoofing even if the password is compromised. Infact, during the handshake the client only sends a digital signature created by the key, not the key itself. However, the management of certificates and the computational overhead of mTLS can be challenging for resource constrained IoT devices. For these reasons often it is reserved for security or battery critical applications.
+\ \
+
+JWT (JSON Web Token) is an open standard defined in the RFC7519 @jwt_rfc. It defines a compact  way for securely transmitting identity information between parties as a JSON object. This information can be verified and trusted because it is digitally signed using a secret or a public/private key pair. JWTs are central for decoupling authentication from the broker. Instead of hardcoding static credentials into an IoT device, the client first authenticates with an Identity Provider (IdP). Once the IdP verifies the device's identity, it issues a JWT structured in three parts: a _header_, specifying the signing algorithm, a _payload_, containing claims about the device identity and permissions, and a _signature_. @fig:jwt_example shows the structure of a JWT. 
+
+The IoT client then places this token in the MQTT password field during connection. The broker does not need to contact the IdP for every message, but instead, it validates the signature using the IdP's public key. This architecture supports granular security policies, short-lived sessions where tokens automatically expire and reduce the risk of unauthorized access if a token is intercepted.
+This solution if particularly preferred for IoT, as it is lightweight, stateless and scalable, making it suitable for large deployments. Ususally, it is combined with TLS encryption to protect the token during transmission, as JWTs are vulnerable to interception and replay attacks.
+
+The use of JWT authentication is implemented in this work, as we will see in @cap:methodology, as it is a modern, lightweight, scalable and extensible solution that fits well with the resource constraints.
+#v(1em)
+#align(center)[
+    #figure(image("../images/jwt-example.png", width: 9cm),
+    caption: "JWT Structure")
+    <fig:jwt_example>
+]
+#v(1em)
+
+Enhanced Authentication, introduced in MQTT 5.0, allows for multi-step authentication exchanges @mqtt5. Unlike previous versions where authentication was a unique attempt, MQTT 5.0 allows the broker to respond with an AUTH packet, triggering a challenge-response mechanism. 
+The broker sends a random nonce and a salt to the client. The client performs cryptographic hashes using its password and sends the result. This allows the broker to verify that the client knows the password without the password ever being transmitted, even in encrypted form. This adds protection against replay attacks.
+==== Authorization methods
+Authorization is the process of determining what actions an authenticated client is permitted to perform. 
+
+The simplest method is the use of Access Control Lists (ACLs), which provide a granular framework to define which clients can publish or subscribe. Usually, ACLs are implemented on the broker but can also be managed by an external service. For large scale IoT deployments, this method could be very inefficient, as it is statically defined and requires regular checks and maintenance, constituting a single point of failure. 
+\ \
+
+A smarter approach is the use of RBAC, where permissions are assigned to roles rather than individual clients, and clients are assigned to these roles. In this model, JTW claims, specific metadata defining roles and permitted topic scopes, can be included in the token payload. The broker then evaluates these claims to determine permissions without the need for external database lookups, enabling a stateless architecture.
+\ \
+
+For more advanced permission control, ReBAC paradigm offers a dynamic alternative by basing authorization decisions on the relationships between entities (such asusers, devices or groups) and resources (topics or data streams). Unlike traditional methods that rely on static lists, ReBAC evaluates permissions through a graph structure. For example, a maintainer might only be authorized to publish commands to a specific set of devices because they are currently assigned to the _maintenance_team_ that _manages_ that specific set. This approach is highly effective for complex and hierarchical IoT environments where access rights may change frequently based on ownership, proximity or organizational shifts. This solution was implemented in this work, as we will see in @cap:methodology.
 
 
 
-=== Security solutions <sec:security_solutions_iot>
-To address the security challenges and threats in IoT systems, various solutions and best practices can be implemented. In this section we will discuss some of the most important techniques employed in IoT security, to achieve the security requirements described in @sec:security_requirements_iot. Some of these solutions are implemented in the work presented in this thesis, as we will see in @cap:methodology, focusing on MQTT and CoAP protocols.
+=== CoAP security solutions <sec:security_solutions_coap>
+CoAp, as we saw in @sec:coap, is a protocol designed for constrained devices and networks, but it has some security vulnerabilities that need to be addressed. Here we discuss the most important authentication and authorization mechanisms.
 
-For each one we will provide a brief description and the main advantages and disadvantages.
+==== Authentication methods
+DTLS is the CoAP primary security mechanism @RFC7252T73, which operates over UDP and provides authentication, integrity and confidentiality. DTLS supports three operational modes. 
 
-These include:
-- JWT
-- TLS/DTLS
+- PreSharedKey (PSK): before deployment, each device is provisioned with a shared secret key known to both the client and the server. During the DTLS handshake, the client and server mutually authenticate by demonstrating knowledge of the shared key through a challenge-response mechanism, without ever transmitting the key itself. The key is used to derive session keys for encrypting subsequent communication. The main limitation is key management at scale: in large deployments, each device ideally requires a unique PSK, making secure distribution and storage of keys a significant operational challenge.
 
-== Related Works in Smart Agriculture <sec:iot_smart_agriculture>
+- RawPublicKey (RPK): each device holds an asymmetric key pair, typically based on ECC for efficiency. During the DTLS handshake, devices exchange their raw public keys, which are validated not through a CA but through an specific trust mechanism, such as a pre-configured list of trusted public keys. The private key never leaves the device, and the public key is used to verify digital signatures during the handshake. This approach eliminates the overhead of certificate parsing and CA validation while still providing asymmetric security guarantees.
+
+- Certificate mode: This mode implements a full PKI. Each device has an X.509 certificate issued and signed by a trusted CA. During the DTLS handshake, devices exchange and validate each other's certificates by verifying the CA's digital signature, checking validity period and if the certificate has not been revoked. This provides a scalable and standardized trust model, but since it is resource demanding it is less suitable for constrained devices.
+\ 
+
+OSCORE (Object Security for Constrained RESTful Environments), standardized in RFC8613 @RFC8613O99, is a more recent alternative to DTLS that shifts protection from the transport layer to the application layer. It encrypts and authenticates individual CoAP messages end-to-end, ensuring protection even when passing through untrusted intermediaries. 
+OSCORE is built on top of COSE (CBOR Object Signing and Encryption) @RFC8152C18, which provides a standardized framework for applying cryptographic operations to data serialized in CBOR (Concise Binary Object Representation) format. CBOR itself is a binary data format designed as a compact alternative to JSON, particularly suited for constrained devices due to its minimal parsing overhead and reduced message size. COSE extends CBOR by defining a set of structures for representing encrypted, signed and authenticated data. 
+Within OSCORE, each security context is established from a master secret and salt, from which session keys are derived using HKDF (HMAC-based Key Derivation Function), ensuring independent keys for each communication direction. These keys are then used to perform AEAD (Authenticated Encryption with Associated Data) operations, with AES-CCM, combining encryption and authentication in a single lightweight operation. 
+
+A notable extension of OSCORE is EDHOC (Ephemeral Diffie-Hellman Over COSE), key exchange protocol to allow two parties to negotiate fresh cryptographic keys using ephemeral Diffie-Hellman key pairs. Even if long term keys are compromised, past communications remain protected. This combination of EDHOC and OSCORE provides a complete, lightweight security solution that covers both key establishment and message protection, making it particularly well-suited for IoT environments.
+
+==== Authorization methods
+The primary authorization framework for CoAP is ACE-OAuth (Authentication and Authorization for Constrained Environments), standardized by the IETF, which adapts the well-known OAuth 2.0 framework to the characteristics of constrained IoT devices. In this scheme, an Authorization Server (AS) issues access tokens that clients present to resource servers to obtain access, maintaining a clear separation between authentication and authorization. These tokens are typically expressed as CWTs (CBOR Web Tokens), a compact binary variant of the more common JWTs, designed to minimize overhead on memory and computationally limited devices. ACE-OAuth supports multiple transport profiles, including DTLS and OSCORE, ensuring seamless integration with the authentication mechanisms described above. At a more granular level, authorization can be managed through Access Control Lists (ACLs), which explicitly define which resources are accessible by which devices or users, and through which CoAP methods (GET, POST, PUT, DELETE). In more complex smart agriculture deployments, Role-Based Access Control (RBAC) or the more flexible Attribute-Based Access Control (ABAC) are often adopted, with the latter enabling authorization decisions based on contextual attributes such as device location, time of day, or current system state, offering a particularly suitable access control model for the dynamic and distributed nature of agricultural IoT scenarios.

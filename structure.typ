@@ -7,8 +7,8 @@
 #include "./preface/acknowledgements.typ"
 #include "./preface/table-of-contents.typ"
 #include "./preface/list.typ"
-// Mainmatter
 
+// Mainmatter
 
 #set page(numbering: "1")
 
