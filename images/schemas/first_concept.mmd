@@ -1,0 +1,32 @@
+---
+config:
+  theme: redux
+  look: neo
+---
+flowchart LR
+ subgraph s1["<b>Gateways</b>"]
+        Californium["Custom Gateway"]
+        NanoMQ_MQTT["VerneMQ"]
+  end
+ subgraph s2["Microservices"]
+        DB[("Storage")]
+        Microservizi["Microservices"]
+  end
+    CoAP_dev["CoAP devices"] <-- CoAP --> Californium
+    MQTT_dev["MQTT devices"] <-- MQTT --> NanoMQ_MQTT
+    s1 -- auth --> n1["Zitadel <br>&amp;<br>Permify"]
+    NodeRED["NATS"] --> DB & Microservizi
+    Californium L_Californium_NodeRED_0@<--> NodeRED
+    NanoMQ_MQTT <--> NodeRED
+
+    n1@{ shape: rect}
+    style Californium fill:#FFE0B2
+    style NanoMQ_MQTT fill:#FFE0B2
+    style DB fill:#FFF9C4
+    style Microservizi fill:#FFF9C4
+    style CoAP_dev fill:#C8E6C9
+    style MQTT_dev fill:#C8E6C9
+    style n1 stroke:#000000,fill:#FFCDD2
+    style NodeRED fill:#BBDEFB
+
+    L_Californium_NodeRED_0@{ curve: natural }

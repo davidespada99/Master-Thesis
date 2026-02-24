@@ -1,0 +1,30 @@
+flowchart TB
+ subgraph s1["<b>Tenant 01</b>"]
+    direction TB
+        A1["👤 <br><b>Admin<br></b>Full read/write/edit within tenant scope"]
+        G1["📁 Users Group Permissions<br>(inherited)"]
+        U1["👤 Operator"]
+        U2["🔧 Maintainer"]
+        D1["📳Device"]
+        U3["👤 Operator<br>(standalone <br>permissions)"]
+        D2["📳 Device<br>(standalone <br>permissions)"]
+        n2["📁 Device<br>Group"]
+  end
+ subgraph s2["<b>Tenant 02</b>"]
+    direction TB
+        A2["👤 <br><b>Admin<br></b>Full read/write/edit within tenant scope"]
+        G2@{ label: "📁 Users Group Permissions<br style=\"--tw-scale-x:\">(inherited)" }
+        U5["🔧 Maintainer"]
+        D3["📳 Devices"]
+        U4["👤 Operator"]
+        n1["📁 Device Group Permissions"]
+  end
+    A1 --> G1 & U3 & D2 & n2
+    G1 --> U1 & U2
+    A2 --> G2 & n1
+    G2 --> U4 & U5
+    SA["👤 <b>Super-Admin<br></b>Manages tenants &amp; admins<br>No direct data access"] --> s1 & s2
+    n1 --> D3
+    n2 --> D1
+
+    G2@{ shape: rect}

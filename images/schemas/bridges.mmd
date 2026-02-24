@@ -1,0 +1,44 @@
+---
+config:
+  look: neo
+  theme: redux
+  layout: dagre
+---
+flowchart LR
+ subgraph BridgeLayer["<b>BRIDGES<br></b>"]
+    direction LR
+        m2n["MQTT→NATS<br>Bridge"]
+        n2m["NATS→MQTT<br>Bridge"]
+  end
+ subgraph s1["Gateway Layer"]
+        vmq1["VerneMQ"]
+  end
+ subgraph s3["Central Message Broker"]
+        n7["NATS"]
+  end
+    vmq1 -- Subscribe --> m2n
+    n2m -- Publish --> vmq1
+    n4["Auth Service"] --> n5["Zitadel"] & n6["Permify"]
+    s3 -- Subscribe --> n2m
+    m2n -- Publish --> s3
+    BridgeLayer -- auth --> n4
+
+    n7@{ shape: rect}
+    n4@{ shape: rect}
+    n5@{ shape: rect}
+    n6@{ shape: rect}
+     m2n:::bridge
+     n2m:::bridge
+     vmq1:::gateway
+    classDef client fill:#E3F2FD,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    classDef ingress fill:#FFF3E0,stroke:#EF6C00,stroke-width:3px,color:#E65100
+    classDef gateway fill:#F3E5F5,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
+    classDef auth fill:#FFEBEE,stroke:#C62828,stroke-width:3px,color:#B71C1C
+    classDef bridge fill:#E0F7FA,stroke:#006064,stroke-width:3px,color:#006064
+    classDef bus fill:#E8F5E9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef storage fill:#FFF9C4,stroke:#F57F17,stroke-width:3px,color:#F57F17
+    classDef db fill:#ECEFF1,stroke:#455A64,stroke-width:3px,color:#263238
+    style n7 fill:#C8E6C9,stroke:#00C853
+    style n4 fill:#FFCDD2,stroke:#D50000
+    style n5 stroke:#D50000,fill:#FFCDD2
+    style n6 stroke:#D50000,fill:#FFCDD2

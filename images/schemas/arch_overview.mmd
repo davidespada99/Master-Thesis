@@ -1,0 +1,68 @@
+---
+config:
+  look: neo
+  layout: dagre
+  theme: neutral
+---
+flowchart LR
+ subgraph s2["Multi-protocol <br>Message Broker"]
+        n5["Gateway"]
+  end
+ subgraph s3["Storage and Analytics"]
+        n8["DB / Server"]
+  end
+ subgraph s4["Dashboard"]
+        n9[" "]
+  end
+ subgraph s5["CoAP devices"]
+        n2[" "]
+  end
+ subgraph s6["MQTT devices"]
+        n3[" "]
+  end
+ subgraph s7["Custom devices"]
+        n1[" "]
+  end
+ subgraph s8["Auth"]
+        n14["Authentication<br>&amp;<br>Authorization"]
+  end
+ subgraph s9["<b>Cloud Infrastructure</b>"]
+        s2
+        s3
+        s8
+  end
+ subgraph s10["<b>Device Layer</b>"]
+        s5
+        s6
+        s7
+  end
+ subgraph s11["<b>Application Layer</b>"]
+        s4
+        n12["User"]
+  end
+    n2 <-- <i>CoAP<br></i> --> n5
+    n3 <-- <i>MQTT</i> --> n5
+    n1 <-- <i>custom protocol</i> --> n5
+    s4 <-- <i>view and command</i> --> n12
+    s4 <-- <i>user auth</i> --> n14
+    s3 <-- <br> --> s4
+    n5 -- <i>data collection</i> --> n8
+    s2 <-- <i>device auth</i> --> n14
+    n8 -- <i>send command</i> --> n5
+
+    n5@{ shape: rounded}
+    n8@{ shape: disk}
+    n9@{ icon: "aws:res-amazon-opensearch-service-opensearch-dashboards", pos: "b", h: 48}
+    n2@{ icon: "aws:res-aws-iot-thing-humidity-sensor", pos: "b", h: 48}
+    n3@{ icon: "aws:res-aws-iot-thing-vibration-sensor", pos: "b"}
+    n1@{ icon: "aws:res-aws-iot-thing-temperature-sensor", pos: "b"}
+    n14@{ shape: rounded}
+    n12@{ icon: "fa:user", form: "circle", pos: "t", h: 60}
+    style n5 stroke-width:2px,stroke-dasharray: 0,stroke:#424242
+    style n8 color:#000000,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n3 stroke:#2962FF
+    style n1 stroke:#D50000
+    style n14 stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style s2 stroke:#757575
+    style s7 fill:transparent
+    style n12 stroke:#2962FF,fill:#BBDEFB

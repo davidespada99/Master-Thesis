@@ -18,11 +18,11 @@
     
     // set par(leading: 0.55em, first-line-indent: 1.8em, justify: true)
     set par(
-        leading: 0.95em,
-        spacing: 0.95em,
+        leading: 0.85em,
+        spacing: 0.85em,
         first-line-indent: (
             amount: 1.2em,
-            all: true,
+            all: false,
             ),
         justify: true
     )
@@ -38,20 +38,19 @@
     show figure.caption: set text(size: 9.5pt)
 
     set heading(numbering: "1.1.1.1")
-
-    // Figure numbering includes section and subsection
+    // Figure numbering: chapter.figure (e.g., 1.1, 1.2, 2.1, etc.)
     set figure(numbering: num => {
         let heads = counter(heading).get()
         numbering("1.1", ..heads.slice(0, calc.min(1, heads.len())), num)
     })
 
     // "Source Code Pro" for code blocks
-    show raw: set text(font: "Source Code Pro", size: 11pt, lang: myLang)
+    show raw: set text(font: "Source Code Pro", size: 8pt, lang: myLang)
 
     show heading: set block(above: 1.5em, below: 1em)
 
     set list(indent: 1em)
-
+  
     show heading: it => {
         if it.level == 1 and it.numbering != none {
             v(10em)
@@ -79,7 +78,6 @@
                 []
             ))
         }
-
         else if it.level == 2 {
             v(1.3em)
             align(left, 
@@ -119,47 +117,7 @@
         }
 
     }
+    
     body
-}
 
-/// Generates a formatted use case documentation block.
-///
-/// This function creates a structured representation of a use case, displaying
-/// its number and name as a title, followed by a two-column table containing
-/// all additional details.
-///
-/// - useCaseDetails (dictionary): A dictionary containing use case information.
-///   Must include "number" and "name" keys for the title. All other key-value
-///   pairs will be displayed in the table as property-value rows.
-///
-/// Returns: A formatted content block with the use case title and details table.
-///
-/// Example:
-/// ```typst
-/// #useCase((
-///   number: "01",
-///   name: "User Login",
-///   Actor: "User",
-///   Precondition: "User has valid credentials",
-///   Description: "User logs into the system"
-/// ))
-/// ```
-#let useCase(useCaseDetails) = {
-    let n = 1
-    if useCaseDetails.number != "" and useCaseDetails.name != "" {
-        text(12pt, [ *UC#useCaseDetails.number: #useCaseDetails.name* ])
-    }
-    let result = for (k, v) in useCaseDetails {
-        if k != "number" and k != "name" {
-            (text(k, weight: "bold"),
-            v,)
-        }
-        n = n + 1
-    }
-    table(
-        inset: 8pt,
-        stroke: none,
-        columns: 2,
-        ..result
-    )
 }

@@ -53,7 +53,7 @@ In this project, conducted under the guidance of Sandro Lain at M31 S.r.l., the 
 
 The proposed solution is applied to a smart agriculture use case, specifically for smart greenhouse scenarios. In this environment, a variety of sensors and actuators are deployed to perform telemetry and data collection. This information must be transmitted to a central database for analytics and processing. Furthermore, the system should be designed to handle downward communication, enabling both manual user control over actuators and autonomous actions triggered by specific conditions.
 
-In addition to the architectural challenges, the design process is guided by some operational requirements, thinking towards a production grade product:
+In addition to the architectural challenges, the design process is guided by some operational requirements, discussed more in detail in @sec:arch_requirements, for thinking towards a production grade product:
 
 - Multi-tenancy and Data Isolation: the system must support multiple independent tenants and ensuring data streams and devices remain isolated and secure.
 
@@ -65,7 +65,9 @@ In addition to the architectural challenges, the design process is guided by som
 
 - Machine-to-Machine (M2M) Authentication: where possible, the system should consider M2M authentication to ensure trusted communication between system components.
 
-Finally, a requirement of the system is to provide security mechanisms, adhering to the CIAA principles (Confidentiality, Integrity, Availability and Authentication). Given the resource-constrained nature of IoT devices and the different authentication mechanisms inherent to MQTT and CoAP, the implementation of appropriate security protocols is essential. Regarding users, as admins, operators or mainteiners accessing the system, it is important to establish authentication and authorization access controls
+- Interoperability: the system must ensure seamless communication and data exchange between MQTT and CoAP devices, considering future extensibility to other protocols. This includes the ability to translate between the different communication paradigms, abstracting protocol differences while maintaining performance and reliability.  \
+
+Finally, a requirement of the system is to provide security mechanisms, adhering to the CIAA principles (Confidentiality, Integrity, Availability and Authentication). Given the resource-constrained nature of IoT devices and the different authentication mechanisms inherent to MQTT and CoAP, the implementation of appropriate security protocols is essential. Regarding users, as admins, operators or mainteiners accessing the system, it is important to establish authentication and authorization access controls.
 
 
 == Structure of the thesis <sec:structure_of_the_thesis>
