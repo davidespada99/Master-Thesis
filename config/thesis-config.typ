@@ -1,5 +1,9 @@
 #import "../config/constants.typ": chapter
 #import "../config/variables.typ": myName, myTitle, myTitle2, myLang,
+
+// Monospace cell helper — available for import in all files
+#let mc(content) = text(font: "Source Code Pro", size: 7pt, content)
+
 #let config(
     myAuthor: myName,
     myTitle: myTitle+myTitle2,
@@ -36,16 +40,23 @@
         )
 
     show figure.caption: set text(size: 9.5pt)
+    show figure.where(kind: raw): set figure(supplement: "Code")
 
     set heading(numbering: "1.1.1.1")
-    // Figure numbering: chapter.figure (e.g., 1.1, 1.2, 2.1, etc.)
+    // Figure numbering: chapter.figure (e.g., 1.1, 1.2, 2.1, etc.) or A.1, A.2, ... in appendix
     set figure(numbering: num => {
         let heads = counter(heading).get()
-        numbering("1.1", ..heads.slice(0, calc.min(1, heads.len())), num)
+        let in-appendix = state("appendix-mode", false).get()
+        if in-appendix {
+            // numbering("A.1", 1, n) → "A.1"; ("A.1", 2, n) → "B.1" for appendix B, etc.
+            numbering("A.1", ..heads.slice(0, calc.min(1, heads.len())), num)
+        } else {
+            numbering("1.1", ..heads.slice(0, calc.min(1, heads.len())), num)
+        }
     })
 
     // "Source Code Pro" for code blocks
-    show raw: set text(font: "Source Code Pro", size: 8pt, lang: myLang)
+    show raw: set text(font: "Source Code Pro", size: 7.5pt, lang: myLang)
 
     show heading: set block(above: 1.5em, below: 1em)
 
@@ -59,7 +70,7 @@
                 dir: ttb,
                 spacing: 1em,
                 if it.numbering != none {
-                    text(size: 6em, fill: rgb("#B5001B"), features: (onum: 0, liga: 0))[#counter(heading).display("1")]
+                    text(size: 6em, fill: rgb("#B5001B"), features: (onum: 0, liga: 0))[#counter(heading).display(it.numbering)]
                 },
                 text(size: 2em, it.body),
                 []

@@ -1,0 +1,64 @@
+---
+config:
+  look: neo
+  layout: dagre
+  theme: redux
+---
+flowchart LR
+ subgraph IoT["MQTT Devices"]
+    direction LR
+        device1["🌡️Sensor"]
+        device2["⚡ Actuator"]
+  end
+ subgraph MQTT["VerneMQ Cluster"]
+        verne1["VerneMQ<br>Node 1"]
+        verne2["VerneMQ<br>Node 2"]
+  end
+ subgraph Auth["Authentication & Authorization"]
+        authsvc["Auth Service<br>"]
+        zitadel["Zitadel"]
+        permify["Permify<br>"]
+  end
+ subgraph Bridges["Bridges"]
+        mqtt2nats["MQTT→NATS<br>Bridge"]
+        nats2mqtt["NATS→MQTT<br>Bridge"]
+  end
+ subgraph NATS["NATS Cluster"]
+        nats0["NATS 0"]
+        nats1["NATS 1"]
+        nats2["NATS 2"]
+  end
+ subgraph Storage["Persistence"]
+    direction LR
+        worker["DB Writer"]
+        timescale[("TimescaleDB")]
+  end
+    authsvc --> zitadel & permify
+    MQTT -- Subscribe --> mqtt2nats
+    MQTT <-- Auth --> Auth
+    nats2mqtt -- Publish --> MQTT
+    mqtt2nats -- Publish --> nats0
+    nats0 -- Subscribe --> nats2mqtt
+    nats0 <--> nats1
+    nats1 <--> nats2
+    nats2 <--> nats0
+    worker --> timescale
+    IoT --> MQTT
+    IoT <-- JWT issuing --> Auth
+    NATS --> Storage
+
+    style device1 fill:#22c55e,stroke:#16a34a,color:#fff
+    style device2 fill:#22c55e,stroke:#16a34a,color:#fff
+    style verne1 fill:#AA00FF,stroke:#AA00FF,color:#FFFFFF
+    style verne2 fill:#AA00FF,stroke:#7c3aed,color:#FFFFFF
+    style authsvc fill:#ef4444,stroke:#dc2626,color:#fff
+    style zitadel fill:#ef4444,stroke:#dc2626,color:#fff
+    style permify fill:#ef4444,stroke:#dc2626,color:#fff
+    style mqtt2nats fill:#06b6d4,stroke:#0891b2,color:#fff
+    style nats2mqtt fill:#06b6d4,stroke:#0891b2,color:#fff
+    style nats0 fill:#10b981,stroke:#059669,color:#fff
+    style nats1 fill:#10b981,stroke:#059669,color:#fff
+    style nats2 fill:#10b981,stroke:#059669,color:#fff
+    style worker fill:#6366f1,stroke:#4f46e5,color:#fff
+    style timescale fill:#f97316,stroke:#ea580c,color:#fff
+    style MQTT fill:#FFFFFF

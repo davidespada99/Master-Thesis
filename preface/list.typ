@@ -1,5 +1,7 @@
 #import "../config/constants.typ": figuresList, tablesList, acronymsList
+#import "@preview/codelst:2.0.2": sourcecode
 #set page(numbering: "i")
+
 #heading(level: 1, numbering: none, outlined: true)[#tablesList]
 #outline(
     title: none,
@@ -17,6 +19,15 @@
 
 #pagebreak()
 
+#heading(level: 1, numbering: none, outlined: true)[List of Codes]
+#outline(
+  title: none,
+  target: figure.where(kind: raw)
+)
+
+
+
+#pagebreak()
 #let acronym(abbr, full) = {
   set par(spacing: 1.6em)
   [#grid(

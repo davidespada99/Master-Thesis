@@ -1,0 +1,55 @@
+---
+config:
+  look: neo
+  layout: dagre
+---
+flowchart LR
+ subgraph s2["Sensor Fleet 2"]
+        n5[" "]
+        n6[" "]
+        n7[" "]
+        n8[" "]
+  end
+ subgraph s1["Sensor Fleet 1"]
+        n1[" "]
+        n2[" "]
+        n3[" "]
+        n4[" "]
+  end
+ subgraph s3["Sensor Fleet n"]
+        n12[" "]
+        n17[" "]
+        n18[" "]
+        n19[" "]
+  end
+    s1 --> n9["<b>Local Hub 1</b>"]
+    s2 --> n10["<b>Local Hub 2</b>"]
+    n9 --> n11["<b>Cloud Services</b>"]
+    n10 --> n11
+    s3 --> n16["<b>Local Hub n</b>"]
+    n16 --> n11
+
+    n5@{ icon: "aws:res-aws-iot-thing-humidity-sensor", pos: "b"}
+    n6@{ icon: "aws:res-aws-iot-thing-humidity-sensor", pos: "b"}
+    n7@{ icon: "aws:res-aws-iot-thing-humidity-sensor", pos: "b"}
+    n8@{ icon: "aws:res-aws-iot-thing-humidity-sensor", pos: "b"}
+    n1@{ icon: "aws:res-aws-iot-thing-temperature-sensor", pos: "b"}
+    n2@{ icon: "aws:res-aws-iot-thing-temperature-sensor", pos: "b"}
+    n3@{ icon: "aws:res-aws-iot-thing-temperature-sensor", pos: "b"}
+    n4@{ icon: "aws:res-aws-iot-thing-temperature-sensor", pos: "b"}
+    n12@{ icon: "aws:res-aws-iot-thing-vibration-sensor", pos: "b"}
+    n17@{ icon: "aws:res-aws-iot-thing-vibration-sensor", pos: "b"}
+    n18@{ icon: "aws:res-aws-iot-thing-vibration-sensor", pos: "b"}
+    n19@{ icon: "aws:res-aws-iot-thing-vibration-sensor", pos: "b"}
+    n9@{ icon: "aws:res-amazon-vpc-nat-gateway", pos: "b", h: 80}
+    n10@{ icon: "aws:res-amazon-vpc-nat-gateway", pos: "b", h: 80}
+    n11@{ icon: "azure:cloud-services-classic", pos: "b", h: 80}
+    n16@{ icon: "aws:res-amazon-vpc-nat-gateway", pos: "b", h: 80}
+    style n5 stroke:#D50000
+    style n6 stroke:#D50000
+    style n7 stroke:#D50000
+    style n8 stroke:#D50000
+    style n12 stroke:#FF6D00
+    style n17 stroke:#FF6D00
+    style n18 stroke:#FF6D00
+    style n19 stroke:#FF6D00

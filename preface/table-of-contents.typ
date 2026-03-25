@@ -53,7 +53,7 @@
       } 
       
       // --- STYLE FOR SUBSEQUENT LEVELS (Sub-chapters) ---
-      #if el.level > 1 and el.level <= 4 {
+      #if el.level > 1 and el.level <= 3 {
         v(0.1em) 
         set text(font: "EB Garamond", size: 1em)
         
